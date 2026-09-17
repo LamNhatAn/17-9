@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<body>
+<section layout:fragment="content">
+    <div class="content-panel small-panel">
+        <h1 th:text="${category.id == null ? 'Thêm danh mục mới' : 'Cập nhật danh mục'}">Danh mục</h1>
+
+        <form th:action="${category.id == null ? '/categories' : '/categories/' + category.id}" method="post" th:object="${category}" class="form-box">
+            <div class="field">
+                <label for="name">Tên danh mục</label>
+                <input id="name" th:field="*{name}" type="text" placeholder="Nhập tên danh mục">
+                <small class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Lỗi</small>
+            </div>
+
+            <div class="field">
+                <label for="description">Mô tả</label>
+                <textarea id="description" th:field="*{description}" rows="5" placeholder="Nhập mô tả..."></textarea>
+                <small class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Lỗi</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a th:href="@{/categories}" class="btn btn-light">Hủy</a>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

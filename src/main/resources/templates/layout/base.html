@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title layout:title-pattern="$CONTENT_TITLE - Category App">Category App</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand-wrap">
+                <svg class="avatar" viewBox="0 0 200 200" role="img" aria-label="Ảnh đại diện">
+                    <circle cx="100" cy="100" r="96" fill="#efe8d8" stroke="#1f1f1f" stroke-width="4"/>
+                    <path d="M62 80 L56 48 L90 52 L82 80 Z" fill="#f2d55d" stroke="#1f1f1f" stroke-width="3"/>
+                    <path d="M138 80 L144 48 L110 52 L118 80 Z" fill="#f2d55d" stroke="#1f1f1f" stroke-width="3"/>
+                    <path d="M48 98 Q36 115 39 143 Q48 169 65 170 Q82 170 84 152 Q86 120 72 107 Z" fill="#f6f6f6" stroke="#1f1f1f" stroke-width="4"/>
+                    <path d="M152 98 Q164 115 161 143 Q152 169 135 170 Q118 170 116 152 Q114 120 128 107 Z" fill="#f6f6f6" stroke="#1f1f1f" stroke-width="4"/>
+                    <ellipse cx="66" cy="106" rx="24" ry="28" fill="#ffffff" stroke="#1f1f1f" stroke-width="4"/>
+                    <ellipse cx="134" cy="106" rx="24" ry="28" fill="#ffffff" stroke="#1f1f1f" stroke-width="4"/>
+                    <ellipse cx="66" cy="108" rx="12" ry="16" fill="#111111"/>
+                    <ellipse cx="134" cy="108" rx="12" ry="16" fill="#111111"/>
+                    <path d="M78 115 Q100 128 122 115" fill="none" stroke="#1f1f1f" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M95 128 Q100 142 105 128" fill="none" stroke="#1f1f1f" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M55 136 Q100 170 145 136" fill="none" stroke="#1f1f1f" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M50 66 Q60 50 72 56" fill="none" stroke="#1f1f1f" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M150 66 Q140 50 128 56" fill="none" stroke="#1f1f1f" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="58" cy="79" r="4" fill="#f1cf38"/>
+                    <circle cx="142" cy="79" r="4" fill="#f1cf38"/>
+                    <path d="M36 100 Q30 128 58 130" fill="none" stroke="#8b5a2b" stroke-width="9" stroke-linecap="round"/>
+                    <path d="M164 100 Q170 128 142 130" fill="none" stroke="#8b5a2b" stroke-width="9" stroke-linecap="round"/>
+                    <rect x="43" y="92" width="56" height="26" rx="8" fill="none" stroke="#8b5a2b" stroke-width="7"/>
+                    <rect x="101" y="92" width="56" height="26" rx="8" fill="none" stroke="#8b5a2b" stroke-width="7"/>
+                    <path d="M85 150 Q100 168 115 150" fill="none" stroke="#1f1f1f" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M90 150 Q100 160 110 150" fill="none" stroke="#1f1f1f" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+                <div>
+                    <h2>Category Management</h2>
+                    <p>Spring Boot + Thymeleaf</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a th:href="@{/categories}">Danh mục</a>
+                <a th:href="@{/categories/new}">Thêm mới</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div layout:fragment="content"></div>
+        </main>
+
+        <footer class="site-footer">
+            <p>Họ tên sinh viên: Lâm Nhật An</p>
+            <p>MSSV: 24162002</p>
+            <p>Lớp: 241621A</p>
+        </footer>
+    </div>
+</body>
+</html>

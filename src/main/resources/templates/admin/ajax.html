@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product & Category AJAX</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="ajax-page">
+<header class="ajax-header">
+    <div><span class="eyebrow">CATEGORY APP</span><h1>Product workspace</h1><p>Quản lý sản phẩm và danh mục trong một màn hình.</p></div>
+    <nav><a href="#products">Sản phẩm</a><a href="#categories">Danh mục</a><a href="/swagger-ui/index.html">Swagger API</a></nav>
+</header>
+<main class="ajax-main">
+    <div id="notice" class="notice" role="status"></div>
+    <div class="stats-grid"><article><span>SẢN PHẨM</span><strong id="product-count">0</strong></article><article><span>DANH MỤC</span><strong id="category-count">0</strong></article><article><span>TỔNG TỒN KHO</span><strong id="stock-count">0</strong></article></div>
+
+    <section id="products" class="workspace-panel">
+        <div class="panel-heading"><div><span class="eyebrow">CATALOG</span><h2>Danh sách sản phẩm</h2><p>Sắp xếp theo giá tăng dần. Tìm kiếm không cần tải lại trang.</p></div><button class="btn btn-primary" id="show-product-form">+ Thêm sản phẩm</button></div>
+        <form id="product-search" class="toolbar"><input id="product-keyword" placeholder="Tìm theo tên hoặc mô tả" autocomplete="off"><select id="product-category"><option value="">Tất cả danh mục</option></select><button class="btn btn-dark" type="submit">Tìm kiếm</button><button class="btn btn-light" type="button" id="refresh-products">Làm mới</button></form>
+        <div id="product-editor" class="editor hidden"><div class="editor-title"><h3 id="product-editor-title">Thêm sản phẩm</h3><button type="button" class="icon-button" id="product-cancel" aria-label="Đóng">×</button></div><form id="product-form" class="form-grid"><input type="hidden" id="product-id"><input id="product-name" required placeholder="Tên sản phẩm"><input id="product-price" required type="number" min="0" step="0.01" placeholder="Giá"><input id="product-quantity" required type="number" min="0" placeholder="Số lượng"><input id="product-description" placeholder="Mô tả"><input id="product-image-url" placeholder="URL hình ảnh"><input id="product-image-file" type="file" accept="image/*"><select id="product-form-category" required></select><div class="editor-actions"><button class="btn btn-primary" type="submit">Lưu sản phẩm</button><button class="btn btn-light" type="button" id="product-reset">Hủy</button></div></form></div>
+        <div class="table-wrap"><table><thead><tr><th>Sản phẩm</th><th>Giá</th><th>Tồn kho</th><th>Danh mục</th><th></th></tr></thead><tbody id="product-rows"></tbody></table></div>
+    </section>
+
+    <section id="categories" class="workspace-panel">
+        <div class="panel-heading"><div><span class="eyebrow">ORGANIZATION</span><h2>Danh mục</h2><p>Tạo nhóm sản phẩm để lọc nhanh hơn.</p></div><button class="btn btn-primary" id="show-category-form">+ Thêm danh mục</button></div>
+        <div id="category-editor" class="editor hidden"><div class="editor-title"><h3 id="category-editor-title">Thêm danh mục</h3><button type="button" class="icon-button" id="category-cancel" aria-label="Đóng">×</button></div><form id="category-form" class="form-grid"><input type="hidden" id="category-id"><input id="category-name" required minlength="2" placeholder="Tên danh mục"><input id="category-description" placeholder="Mô tả"><div class="editor-actions"><button class="btn btn-primary" type="submit">Lưu danh mục</button><button class="btn btn-light" type="button" id="category-reset">Hủy</button></div></form></div>
+        <div class="table-wrap"><table><thead><tr><th>Tên danh mục</th><th>Mô tả</th><th></th></tr></thead><tbody id="category-rows"></tbody></table></div>
+    </section>
+</main>
+<script th:src="@{/js/ajax.js}"></script>
+</body>
+</html>
